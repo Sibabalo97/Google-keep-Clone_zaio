@@ -7,7 +7,7 @@
   font-family: "Roboto", sans-serif;
 }
 
-/* HOVER EFFECTS  */
+/* HOVER EFFECTS */
 .material-symbols-outlined {
   padding: 10px;
 }
@@ -43,7 +43,7 @@
   visibility: visible;
 }
 
-/* NAVBAR STYLES  */
+/* NAVBAR STYLES */
 nav {
   display: flex;
   justify-content: space-between;
@@ -59,13 +59,15 @@ nav {
   display: flex;
   align-items: center;
 }
+
 .logo-text {
   font-size: 1.2rem;
 }
 
 .search-area {
   background: #f1f3f4;
-  width: 692px;
+  width: 100%;
+  max-width: 692px;
   height: 48px;
   border-radius: 8px;
   display: flex;
@@ -80,6 +82,7 @@ nav {
   font-size: 1rem;
   margin-left: 10px;
 }
+
 input:focus {
   outline: none;
 }
@@ -90,7 +93,7 @@ input:focus {
 
 /* MAIN SECTION STYLES */
 
-/* SIDEBAR  */
+/* SIDEBAR */
 .sidebar {
   position: fixed;
   left: 0;
@@ -104,16 +107,19 @@ input:focus {
   transition: 0.8s;
   height: 100%;
 }
+
 .sidebar-hover {
-    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302),
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302),
     0 2px 6px 2px rgba(60, 64, 67, 0.149);
-    background: white;
+  background: white;
 }
+
 .active {
   background-color: #fef0c3;
   border-radius: 50%;
   color: black;
 }
+
 .active:hover {
   background-color: #fef0c3;
 }
@@ -134,7 +140,7 @@ input:focus {
 }
 
 .sidebar-item .material-symbols-outlined {
-  margin-left: 18px; 
+  margin-left: 18px;
 }
 
 .sidebar-item:nth-child(1) {
@@ -157,7 +163,7 @@ input:focus {
   background-color: #fef0c3;
 }
 
-/* MAIN FORM  */
+/* MAIN FORM */
 .form-container {
   background: #fff;
   max-width: 598px;
@@ -167,34 +173,23 @@ input:focus {
     0 2px 6px 2px rgba(60, 64, 67, 0.149);
   border-radius: 8px;
 }
+
 .form-container form {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   height: 100%;
   color: #5f6368;
 }
 
-.note-text {
-  border: none;
-  font-size: 1rem;
-  height: 100%;
-  padding: 10px;
-  margin-left: 10px;
-  width: 100%;
-  margin-right: 10px;
-  padding-left: 10px;
-}
-
+.note-text,
 .note-title {
   border: none;
   font-size: 1rem;
-  height: 100%;
   padding: 10px;
-  margin-left: 10px;
+  margin: 5px;
   width: 100%;
-  margin-right: 10px;
-  padding-left: 10px;
 }
 
 .form-actions {
@@ -235,23 +230,25 @@ input:focus {
   font-size: 1.1rem;
 }
 
-/* ALL NOTES  */
+/* ALL NOTES */
 .notes {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  padding: 0 50px;
+  padding: 0 10px;
 }
 
 .note {
   background-color: white;
   margin: 10px;
-  width: 280px;
+  width: calc(100% - 40px); /* Adjusting width for responsiveness */
+  max-width: 280px; /* Ensures a max size for larger screens */
   border: 1px solid #e0e1e0;
   border-radius: 8px;
   position: relative;
   cursor: pointer;
 }
+
 .note:hover {
   box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302),
     0 2px 6px 2px rgba(60, 64, 67, 0.149);
@@ -277,7 +274,7 @@ input:focus {
 
 .note-footer .material-symbols-outlined {
   color: #5f6368;
-  font-size: .9rem;
+  font-size: 0.9rem;
 }
 
 .note .check-circle {
@@ -287,7 +284,7 @@ input:focus {
   visibility: hidden;
 }
 
-/* MODAL CONTENT  */
+/* MODAL CONTENT */
 .modal {
   position: fixed;
   top: 0;
@@ -299,7 +296,8 @@ input:focus {
 }
 
 .modal .modal-content {
-  width: 589px;
+  width: 90%; /* Adjusted for smaller screens */
+  max-width: 589px;
   position: relative;
   top: 30%;
   left: 50%;
@@ -309,3 +307,63 @@ input:focus {
 .open-modal {
   visibility: visible;
 }
+
+/* RESPONSIVE STYLES */
+@media screen and (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+
+  .logo-area {
+    margin-bottom: 10px;
+  }
+
+  .search-area {
+    width: 100%;
+  }
+
+  .form-container {
+    margin: 20px;
+    width: 90%; /* Adjusted for mobile devices */
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: space-around;
+    position: static;
+  }
+
+  .sidebar-item .sidebar-text {
+    display: none;
+  }
+
+  .notes {
+    padding: 0;
+  }
+
+  .note {
+    width: 100%;
+    margin: 5px 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .note {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .search-area {
+    height: 40px;
+  }
+
+  .modal .modal-content {
+    width: 95%;
+  }
+}
+
+
